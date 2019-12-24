@@ -1,2 +1,5 @@
-docker build -t golang-replace ./
+docker run -it \
+	-v $(cd $(dirname $0) && pwd)/src:/go-src \
+	golang \
+	bash -c "cd /go-src;go test -bench . -benchtime 5s"
 
